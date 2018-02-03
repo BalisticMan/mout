@@ -2,11 +2,11 @@ var myTracks = {
 
 }; //emmagatzemem tots els tracks en ordre cronologic
 
-$.getJSON('http://time.jsontest.com', function(data) {
+$.getJSON('http://minze.byethost7.com/data_out.json', function(data) {
         
-    var origen = `${data.origin}`
-    var desti = `${data.desti}`
-
+    var origen = `${data.boss.Name}`
+    //var desti = `${data.desti}`
+    console.log(origen);
 });
 
 /*
@@ -122,7 +122,7 @@ function addTrack(track) {
         //search through all elements with same time. Compare origin from element 
         //to add with existing elements and only add if not existing
         var auxTrack = myTracks[track.time].find(hasName, this);
-        if (auxTrack === undefined) //afegim el nou track al time line
+        if (auxTrack === undefined); //afegim el nou track al time line
         else auxTrack.times += 1;
     }
 
