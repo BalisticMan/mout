@@ -98,14 +98,15 @@ function makeTracks(directionResult) {
     for (var i=0; i < myRoute.steps.length(); i++) {
 
         //comprovem que l'step en el que ens trobem sigui de transport públic, altrament no ens interessa   
-        if (myRoute.steps[i].)
-        //formació de la track a guardar
+        if (myRoute.steps[i].travelMode === 'TRANSIT') {
+            //formació de la track a guardar
         auxTrack.origin = myRoute.steps[i].transit.departure_stop;
         auxTrack.nextTrack = auxTrack.end = myRoute.steps[i].transit.arrival_stop;
         auxTrack.time = myRoute.steps[i].transit.departure_time;
         auxTrack.type = myRoute.steps[i].transit.type; //tipus de transport públic del track
         //afegim el track al diccionari de tracks
         addTrack(auxTrack);
+        }
     }
 }
 
