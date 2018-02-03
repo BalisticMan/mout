@@ -2,13 +2,6 @@ var myTracks = {
 
 }; //emmagatzemem tots els tracks en ordre cronologic
 
-$.getJSON('http://minze.byethost7.com/data_out.json', function(data) {
-        
-    var origen = `${data.boss.Name}`
-    //var desti = `${data.desti}`
-    console.log(origen);
-});
-
 /*
  funció a conversió a json
  funcio per pujar el json al server
@@ -64,6 +57,16 @@ class Travel {
     }  
 } */
 
+var origenPerfil;
+var destiPerfil;
+
+$.getJSON('http://minze.byethost7.com/data_out.json', function(data) {
+        
+    var origenPerfil = `${data.boss.Name}`
+    //var desti = `${data.desti}`
+    console.log(origen);
+});
+
 function getTravel  (start,end) {
     //funció que a partir de la api genera els nodes amb
     //els noms, cada 2 nodes crida a addTrack
@@ -74,8 +77,11 @@ function getTravel  (start,end) {
     var directionsDisplay;
 
     directionService.route({
-        origin: document.getElementById(''), //aqui posem l'adreça origen del perfil de la persona
-        destination:document.getElementById(''), //aqui posem l'adreça destí del perfil de la persona
+
+        /* document.getElementById('') */
+
+        origin: origenPerfil, //aqui posem l'adreça origen del perfil de la persona
+        destination: destiPerfil, //aqui posem l'adreça destí del perfil de la persona
         travelMode: 'TRANSIT'
         /*transitOptions: {
             arrivalTime: Date,
